@@ -1,2 +1,2 @@
 # DatingApp
-Dating app created by using ASP.NET and Angular
+A dating application built from scratch using .NET and Angular. Entity Framework is widely used in the application, third party components are added. The styling of the application is created using bootstrap. The cloudinary service is used for the functionality of the photos, they are downloaded thanks to the API. The application is under development and it is planned to add a higher level of security, new features such as tinder functionality where users drag each other left and right. A complete change of the chat window is also planned.
