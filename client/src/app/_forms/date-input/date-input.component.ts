@@ -1,4 +1,4 @@
-import { Component, Input,Self } from '@angular/core';
+import { Component, Input, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
@@ -16,8 +16,8 @@ export class DateInputComponent implements ControlValueAccessor {
     this.ngControl.valueAccessor = this;
     this.bsConfig = {
       containerClass: 'theme-red',
-      dateInputFormat: 'DD MMMM YYYY'
-    }
+      dateInputFormat: 'DD MMMM YYYY',
+    };
   }
   writeValue(obj: any): void {}
   registerOnChange(fn: any): void {}

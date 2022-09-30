@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -28,6 +24,7 @@ namespace API.Controllers
         public ActionResult<AppUser> GetNotFound()
         {
             var thing = _context.Users.Find(-1);
+            
             if (thing == null) return NotFound();
 
             return Ok(thing);

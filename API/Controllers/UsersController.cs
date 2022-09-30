@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using API.Data;
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
@@ -12,7 +6,6 @@ using API.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -34,6 +27,7 @@ namespace API.Controllers
         public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery] UserParams userParams)
         {
             var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+
             userParams.CurrentUsername = user.UserName;
 
             if (string.IsNullOrEmpty(userParams.Gender))
@@ -44,6 +38,7 @@ namespace API.Controllers
             var users = await _userRepository.GetMembersAsync(userParams);
 
             Response.AddPaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
+
             return Ok(users);
         }
 
@@ -108,7 +103,9 @@ namespace API.Controllers
             if (photo.IsMain) return BadRequest("This is already your main photo");
 
             var currentMain = user.Photos.FirstOrDefault(x => x.IsMain);
+
             if (currentMain != null) currentMain.IsMain = false;
+
             photo.IsMain = true;
 
             if (await _userRepository.SaveAllAsync()) return NoContent();
@@ -130,6 +127,7 @@ namespace API.Controllers
             if (photo.PublicId != null)
             {
                 var result = await _photoService.DeletePhotoAsync(photo.PublicId);
+
                 if (result.Error != null) return BadRequest(result.Error.Message);
             }
 

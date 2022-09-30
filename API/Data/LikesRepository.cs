@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
@@ -27,17 +23,20 @@ namespace API.Data
         public async Task<PagedList<LikeDto>> GetUserLikes(LikesParams likesParams)
         {
             var users = _context.Users.OrderBy(u => u.UserName).AsQueryable();
+
             var likes = _context.Likes.AsQueryable();
 
             if (likesParams.Predicate == "liked")
             {
                 likes = likes.Where(like => like.SourceUserId == likesParams.UserId);
+
                 users = likes.Select(like => like.LikedUser);
             }
 
             if (likesParams.Predicate == "likedBy")
             {
                 likes = likes.Where(like => like.LikedUserId == likesParams.UserId);
+                
                 users = likes.Select(like => like.SourceUser);
             }
 

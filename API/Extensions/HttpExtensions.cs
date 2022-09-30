@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
 using API.Helpers;
 
 namespace API.Extensions
@@ -18,6 +14,7 @@ namespace API.Extensions
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
             response.Headers.Add("Pagination", JsonSerializer.Serialize(paginationHeader, options));
+
             response.Headers.Add("Access-Control-Expose-Headers", "Pagination");
         }
     }

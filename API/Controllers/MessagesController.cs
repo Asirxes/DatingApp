@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
@@ -38,6 +34,7 @@ namespace API.Controllers
             }
 
             var sender = await _userRepository.GetUserByUsernameAsync(username);
+
             var recipient = await _userRepository.GetUserByUsernameAsync(createMessageDto.RecipientUsername);
 
             if (recipient == null) return NotFound();
@@ -62,8 +59,11 @@ namespace API.Controllers
         public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessagesForUser([FromQuery] MessageParams messageParams)
         {
             messageParams.Username = User.GetUsername();
+
             var messages = await _messageRepository.GetMessagesForUser(messageParams);
+
             Response.AddPaginationHeader(messages.CurrentPage, messages.PageSize, messages.TotalCount, messages.TotalPages);
+
             return messages;
         }
 

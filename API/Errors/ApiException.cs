@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace API.Errors
 {
     public class ApiException
@@ -10,7 +5,9 @@ namespace API.Errors
         public ApiException(int statusCode, string message = null, string details = null)
         {
             StatusCode = statusCode;
+
             Message = message;
+
             Details = details;
         }
 

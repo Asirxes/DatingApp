@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
 using API.Interfaces;
@@ -19,6 +15,7 @@ namespace API.Data
         public UserRepository(DataContext context, IMapper mapper)
         {
             _context = context;
+
             _mapper = mapper;
         }
         public async Task<MemberDto> GetMemberAsync(string username)
@@ -28,10 +25,13 @@ namespace API.Data
         public async Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
         {
             var query = _context.Users.AsQueryable();
+
             query = query.Where(u => u.UserName != userParams.CurrentUsername);
+
             query = query.Where(u => u.Gender == userParams.Gender);
 
             var minDob = DateTime.Today.AddYears(-userParams.MaxAge - 1);
+
             var maxDob = DateTime.Today.AddYears(-userParams.MinAge);
 
             query = query.Where(u => u.DateOfBirth >= minDob && u.DateOfBirth <= maxDob);
@@ -56,9 +56,7 @@ namespace API.Data
 
         public async Task<IEnumerable<AppUser>> GetUsersAsync()
         {
-            return await _context.Users
-            .Include(p => p.Photos)
-            .ToListAsync();
+            return await _context.Users.Include(p => p.Photos).ToListAsync();
         }
 
         public async Task<bool> SaveAllAsync()
