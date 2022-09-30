@@ -13,3 +13,4 @@ Thanks to the panel in the upper right corner by clicking edit profile you can e
 
 To take full advantage of the application and see its functionality, I recommend setting up 2 accounts and initiating all possible interactions between them (messages, likes, browsing the profile, filters).
 
+Some options are only available if you are an admin. In my exact appliaction lisa have admin permissions. You can login as admin using 'admin' as username and 'Pa$$w0rd' as password, admin tab will be then available with every option. Other users can't use this.
