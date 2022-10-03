@@ -1,5 +1,5 @@
 # DatingApp
-A dating application built from scratch using .NET and Angular. Entity Framework is widely used in the application, third party components are added. The styling of the application is created using bootstrap. The cloudinary service is used for the functionality of the photos, they are downloaded thanks to the API. The application is visually not responsive because I decided to focus on the most important elements.
+A dating application built from scratch using .NET and Angular. Entity Framework is widely used in the application, third party components are added. The styling of the application is created using bootstrap. The cloudinary service is used for the functionality of the photos, they are downloaded thanks to the API.
 
 To install the project run 'dotnet watch run' in API folder and 'ng serve' in client folder.
 
@@ -14,3 +14,7 @@ Thanks to the panel in the upper right corner by clicking edit profile you can e
 To take full advantage of the application and see its functionality, I recommend setting up 2 accounts and initiating all possible interactions between them (messages, likes, browsing the profile, filters).
 
 Some options are only available if you are an admin. In my exact appliaction lisa have admin permissions. You can login as admin using 'admin' as username and 'Pa$$w0rd' as password, admin tab will be then available with every option. Other users can't use this.
+
+SignalR is implemented to run a live chat and to notify users when another user logs in to the application. To observe the action, you need to create 2 accounts and initiate interactions between them.
+
+I am currently working on the visual responsiveness of the application on multiple devices.
