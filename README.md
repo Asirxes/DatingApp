@@ -1,4 +1,4 @@
-# DatingApp
+# FindYourMatchingSoul
 
 A dating application built from scratch using .NET and Angular. Entity Framework is widely used in the application, third party components are added. The styling of the application is created using bootstrap. The cloudinary service is used for the functionality of the photos, they are downloaded thanks to the API.
 
