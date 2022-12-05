@@ -2,8 +2,6 @@
 
 A dating application built from scratch using .NET and Angular. Entity Framework is widely used in the application, third party components are added. The styling of the application is created using bootstrap. The cloudinary service is used for the functionality of the photos, they are downloaded thanks to the API. Docker is used for developing the app.
 
-Thanks to the heroku service, the application is available at https://findyourmatchingsoul.herokuapp.com/
-
 To use the project, you need to create a fake account. You will be logged in automatically. Then you can view users in the Matches tab. There you can like the user, see their profile or send them a message. This tab contains filters.
 
 Liked users appear in the list tab.
